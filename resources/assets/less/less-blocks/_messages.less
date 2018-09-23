@@ -1,0 +1,34 @@
+.lb-messages {
+  &__success {
+    padding: 20px 30px;
+    position: absolute;
+    right: 50px;
+    z-index: 1000;
+    opacity: 1;
+    background-color: fade(@c-success, 60%);
+    p {
+      color: @c-white;
+    }
+  }
+  &__warning {
+    padding: 20px 30px;
+    position: absolute;
+    right: 50px;
+    z-index: 1000;
+    background-color: fade(@c-warning, 60%);
+    p {
+      color: @c-white;
+    }
+  }
+  &__error {
+    padding: 20px 30px;
+    position: absolute;
+    right: 50px;
+    z-index: 1000;
+    background-color: fade(@c-error, 80%);
+    p {
+      color: @c-white;
+    }
+  }
+
+}

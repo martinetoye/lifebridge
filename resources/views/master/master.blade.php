@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <title>Lifebridge</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- STYLESHEET -->
     <!-- FONTS -->
     <!-- Muli -->
     <link href="https://fonts.googleapis.com/css?family=Signika:300,400,600,700" rel="stylesheet">
-    <script data-main="/js/app.js" src="{{ url('/vendor/require/require.js') }}"></script>
 
     <!-- icon -->
     <!-- Font Awesome -->
@@ -16,15 +16,17 @@
 
     <link rel="stylesheet" href="{{ url('/fonts/icons/sharehub/style.css') }}"/>
 
-    <link rel="stylesheet" href="{{ url('vendor/datePicker/css/datepicker.css') }}"/>
 
-
-    <!-- Vendor -->
-  <!-- Custom -->
-  <link rel="stylesheet" href="{{ url('/vendor/magnificPopup/dist/magnific-popup.css') }}"/>
   <link href="{{ url('/css/master.css') }}" rel="stylesheet"/>
   </head>
+  <?php $auth_user = Auth::user() ?>
+<!-- Remove on Production Release -->
+<script>
+  window.auth_user = {!! json_encode($auth_user)!!};
+</script>
+
   <body>
+
       @if(Route::currentRouteName() == 'login')
 
       @elseif(Route::currentRouteName() == 'register')
@@ -35,13 +37,16 @@
       @endif
 
       @include('messages.master')
+      <div id="app">
+        @yield('content')
+      </div>
 
-      @yield('content')
 
 
   </body>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5/jquery.min.js"></script>
+
 <script src="{{ url('/js/app.js') }}"></script>
+
 
 @yield('pagescript')
 </html>

@@ -11,4 +11,5 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.less('resources/assets/less/master.less', 'public/css');
+mix.js('resources/assets/js/app.js', 'public/js')
+   .less('resources/assets/less/master.less', 'public/css');

@@ -133,7 +133,7 @@
 
     @include('modals.upload')
     <script>
-        require(['app'], function () {
+        require(['mods'], function () {
             require(['modules/main']);
             require(['modules/upload']);
         });
